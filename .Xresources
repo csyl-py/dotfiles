@@ -1,0 +1,102 @@
+
+Xft.lcdfilter: lcddefault
+Xft.antialias: true
+Xft.autohint: 0
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.rgba: rgb
+Xft.dpi: 96
+URxvt.intensityStyles: false
+
+URxvt.allow_bold: false
+! Xcursor --------------------------------------------------------------------
+
+ Xcursor*theme: Vanilla-DMZ-AA
+ Xcursor.size:  22
+
+! rxvt-unicode ---------------------------------------------------------------
+URxvt.letterSpace: -1
+URxvt.perl-ext-common:  default,matcher, -searchable-scrollback
+! cambiar keybinding alt-s que clashea con kakoune
+URxvt.searchable-scrollback: Meta-Shift-S
+
+URxvt.url-launcher:     /usr/bin/qutebrowser
+URxvt.matcher.button:   1
+!URxvt.depth:
+!URxvt.buffered:
+!URxvt.geometry:80x20
+!URxvt.cursorColor:
+!URxvt.cursorColor2:
+URxvt.fading:40
+!URxvt.fadeColor:Green
+URxvt.transparent:true
+!URxvt.tintColor:Grey
+!URxvt.tintColor: Grey
+URxvt.shading:25
+URxvt.scrollBar:false
+!#URxvt.scrollstyle:plain
+!#URxvt.scrollColor:#AAFF00
+!#URxvt.scrollBar_right:true
+!#URxvt.thickness:1
+!#URxvt.scrollBar_floating:
+!#URxvt.scrollBar_align:
+URxvt.saveLines:1024
+
+!#URxvt.font:xft:Droid Sans Mono:pixelsize=12:antialias=true:hinting=true
+URxvt.font:xft:Source Code Pro:pixelsize=12:antialias=true:hinting=true
+!URxvt.font:xft:Monospace:pixelsize=12:antialias=true:hinting=true
+!URxvt.font: Monospace-14;
+!!! *.font: Monospace-14;
+!URxvt.font:xft:Source Code Pro for Powerline:pixelsize=14:antialias=true:hinting=true
+!#URxvt.boldFont:xft:Source Code Pro:bold:pixelsize=12:antialias=true:hinting=true
+
+URxvt.boldFont:xft:Source Code Pro:bold:pixelsize=14:antialias=true:hinting=true
+!#URxvt.italicFont:
+!#URxvt.boldItalicFont:
+
+!#This makes manpages nice
+*colorBD:  #A0FF00
+*colorUL:  #0080FF              
+*colorIT:  #8000FF
+
+*background: #002b36
+*foreground: #657b83
+*fading: 40
+*fadeColor: #002b36
+*cursorColor: #93a1a1
+*pointerColorBackground: #586e75
+!*pointerColorForeground: #93a1a1
+*pointerColorForeground: #5C2D28
+
+!! black dark/light
+*color0: #073642
+*color8: #002b36
+
+!! red dark/light
+*color1: #dc322f
+*color9: #cb4b16
+
+!! green dark/light
+*color2: #859900
+*color10: #586e75
+
+!! yellow dark/light
+*color3: #b58900
+*color11: #657b83
+
+!! blue dark/light
+*color4: #268bd2
+*color12: #839496
+
+!! magenta dark/light
+*color5: #d33682
+*color13: #6c71c4
+
+!! cyan dark/light
+*color6: #2aa198
+*color14: #93a1a1
+
+!! white dark/light
+*color7: #eee8d5
+*color15: #fdf6e3
+
