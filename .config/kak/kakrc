@@ -1,0 +1,70 @@
+# Plugin manager
+source "%val{config}/plugins/plug.kak/rc/plug.kak"
+# Bigger selections to some primitives, ex: s -> %s 
+plug 'delapouite/kakoune-auto-percent'
+# Fuzzy finder
+plug "andreyorst/fzf.kak"
+# Preview face colors
+plug 'delapouite/kakoune-palette'
+# Surround plugin
+plug 'https://github.com/h-youhei/kakoune-surround'
+# Autopairs
+plug 'alexherbo2/auto-pairs.kak'
+# Powerline format status bar
+plug "andreyorst/powerline.kak" defer powerline %{
+    set-option global powerline_format 'bufname filetype mode_info position'
+#    powerline-theme solarized-dark2
+} config %{
+    powerline-start
+}
+# Easy access to buffers
+plug 'delapouite/kakoune-buffers' %{
+  map global user b ': enter-buffers-mode<ret>' -docstring 'buffers'
+  map global user B ': enter-user-mode -lock buffers<ret>' -docstring 'buffers (lock)'
+}
+
+# Relative number-lines
+add-highlighter global/ number-lines -relative
+
+# Highlight search results
+set-face global search +biu
+add-highlighter global/search dynregex '%reg{/}' 0:search
+
+add-highlighter global/ wrap
+add-highlighter global/ show-matching
+
+# Yank to system clipboard
+hook global NormalKey y|d|c %{ nop %sh{
+      printf %s "$kak_main_reg_dquote" | xsel --input --clipboard
+}}
+# Paste before system clipboard
+map global user P '!xsel --output --clipboard<ret>' -docstring 'paste before'
+# Paste after system clipboard
+map global user p '<a-!>xsel --output --clipboard<ret>' -docstring 'paste after'
+
+# Cleaning subtitles
+map global user a 'gg/Dia<ret>kglGgd%sDia<ret>?0,,<ret>ds[a<minus>z]<ret>i<backspace><backspace><space><esc>%s\\N<ret>c<ret><esc>s[a<minus>z]<ret>i<backspace><space><esc>%s\{<ret>?\}<ret>d%<a-|>xsel<space><minus>bi<ret>'
+map global user f '%<a-s>s0000.*,,<ret>d'
+
+# FZF
+map global normal <c-r> ': fzf-mode<ret>'
+
+# Define colorscheme
+colorscheme solarized-dark
+
+# Enable <tab>/<s-tab> for insert completion selection
+hook global InsertCompletionShow .* %{ map window insert <tab> <c-n>; map window insert <s-tab> <c-p> }
+hook global InsertCompletionHide .* %{ unmap window insert <tab> <c-n>; unmap window insert <s-tab> <c-p> }
+
+# Comments
+map global normal '#' :comment-line<ret>
+
+# Tabs e indents
+set-option global tabstop 4
+set-option global indentwidth 4
+
+# Map for surround
+map global user s ':surround<ret>' -docstring 'surround'
+# Evaluar la seleccion en J
+map global user j "|xargs -d '\n' j8 -c ~/prueba.ijs<ret>" -docstring 'evaluar en J'
+
